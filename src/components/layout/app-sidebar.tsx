@@ -33,7 +33,7 @@ export function AppSidebar() {
         <SidebarMenu>
           {menuItems.map((item) => (
             <SidebarMenuItem key={item.href}>
-              <Link href={item.href}>
+              <Link href={item.href} asChild>
                 <SidebarMenuButton
                   isActive={pathname === item.href}
                   tooltip={{ children: item.label, side: 'right' }}

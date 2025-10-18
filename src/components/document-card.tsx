@@ -18,7 +18,7 @@ type DocumentCardProps = {
 
 export function DocumentCard({ document }: DocumentCardProps) {
   return (
-    <Link href={`/documents/${document.id}`} className="block h-full">
+    <Link href={`/documents/${document.id}`} className="block h-full" asChild>
       <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:border-primary/50 bg-card">
         <CardHeader>
           <Badge variant="outline" className="w-fit mb-2">{document.category}</Badge>

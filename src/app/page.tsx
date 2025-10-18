@@ -26,7 +26,7 @@ export default function Home() {
               Browse the public archive of documents on Norwegian philosophy.
             </p>
           </div>
-          <Link href="/upload" passHref>
+          <Link href="/upload" asChild>
             <Button>Upload Document</Button>
           </Link>
         </div>
@@ -63,7 +63,7 @@ export default function Home() {
               <p className="text-muted-foreground mt-2 mb-4">
                 Start by uploading a document to the archive.
               </p>
-              <Link href="/upload" passHref>
+              <Link href="/upload" asChild>
                 <Button>Upload a Document</Button>
               </Link>
             </div>
