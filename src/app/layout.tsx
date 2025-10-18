@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
-import { AppSidebar } from '@/components/layout/app-sidebar';
 import { Toaster } from '@/components/ui/toaster';
+import { AppHeader } from '@/components/layout/app-header';
 
 export const metadata: Metadata = {
   title: 'Norsk Filosofi Arkiv',
@@ -20,15 +19,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Literata&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Literata:opsz@6..72&family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
       <body className="font-body antialiased">
-        <SidebarProvider>
-          <AppSidebar />
-          <SidebarInset>{children}</SidebarInset>
-        </SidebarProvider>
+        <div className="flex flex-col min-h-screen">
+          <AppHeader />
+          <main className="flex-grow">{children}</main>
+        </div>
         <Toaster />
       </body>
     </html>
