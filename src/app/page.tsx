@@ -6,6 +6,7 @@ import { BookOpen, Plus, FileText, LayoutGrid, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { documents } from '@/lib/data';
 import { DocumentCard } from '@/components/document-card';
+import { ArchiveBrowser } from '@/components/archive-browser';
 
 const categoryCount = new Set(documents.map(doc => doc.category)).size;
 // A placeholder for historical periods since it's not in the data model.
@@ -103,12 +104,7 @@ export default function Home() {
 
       <section className="py-16 sm:py-24 bg-card/50">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-headline text-center mb-12">Featured Articles</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuredArticles.map((doc) => (
-              <DocumentCard key={doc.id} document={doc} />
-            ))}
-          </div>
+          <ArchiveBrowser />
         </div>
       </section>
     </div>
