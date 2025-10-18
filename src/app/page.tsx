@@ -1,3 +1,5 @@
+'use client';
+
 import { DocumentCard } from '@/components/document-card';
 import { documents } from '@/lib/data';
 import type { Document } from '@/lib/data';
