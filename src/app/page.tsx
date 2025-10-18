@@ -52,13 +52,13 @@ export default function Home() {
     <div className="flex h-full flex-col bg-background">
       <section className="flex items-center justify-center p-8 text-center pt-32 pb-24 bg-card/50">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-headline text-foreground mb-4">
+          <h1 className="text-5xl md:text-8xl font-headline text-foreground mb-4">
             Norsk Filosofi
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             A comprehensive archive of Norwegian philosophy – from 19th-century romanticism to modern existentialism, from ethical dilemmas to political theory.
           </p>
-          <div className="flex justify-center gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <Button asChild size="lg">
               <Link href="/archive">
                 <BookOpen className="mr-2" />
@@ -87,7 +87,7 @@ export default function Home() {
 
       <section className="py-16 sm:py-24">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-headline text-center mb-12">Explore by Category</h2>
+          <h2 className="text-3xl md:text-4xl font-headline text-center mb-12">Explore by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((category) => (
               <Card key={category.title} className="hover:shadow-lg transition-shadow cursor-pointer">
@@ -103,7 +103,7 @@ export default function Home() {
 
       <section className="py-16 sm:py-24 bg-card/50">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-headline text-center mb-12">Featured Articles</h2>
+          <h2 className="text-3xl md:text-4xl font-headline text-center mb-12">Featured Articles</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuredArticles.map((doc) => (
               <DocumentCard key={doc.id} document={doc} />

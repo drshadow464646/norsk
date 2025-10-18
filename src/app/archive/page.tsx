@@ -10,7 +10,7 @@ export default function ArchivePage() {
   return (
     <div className="flex h-full flex-col">
       <header className="flex-shrink-0 border-b p-4 pt-24">
-        <div className="container mx-auto flex items-center justify-between">
+        <div className="container mx-auto flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-3xl font-bold font-headline">Archive</h1>
             <p className="text-muted-foreground">

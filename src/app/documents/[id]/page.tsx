@@ -13,7 +13,7 @@ export default function DocumentPage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="h-full overflow-auto">
+    <div className="h-full overflow-auto pt-16">
       <article className="max-w-4xl mx-auto p-4 md:p-8">
         <header className="mb-8">
           <Badge variant="outline" className="mb-4 text-sm font-semibold" style={{borderColor: 'hsl(var(--accent))', color: 'hsl(var(--accent))'}}>{document.category}</Badge>
