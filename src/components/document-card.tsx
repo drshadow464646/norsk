@@ -18,8 +18,8 @@ type DocumentCardProps = {
 
 export function DocumentCard({ document }: DocumentCardProps) {
   return (
-    <Link href={`/documents/${document.id}`} className="block h-full" asChild>
-      <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:border-primary/50 bg-card">
+    <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:border-primary/50 bg-card">
+      <Link href={`/documents/${document.id}`} className="flex flex-col flex-grow">
         <CardHeader>
           <Badge variant="outline" className="w-fit mb-2">{document.category}</Badge>
           <CardTitle className="font-headline text-lg leading-snug">{document.title}</CardTitle>
@@ -40,7 +40,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
             ))}
           </div>
         </CardFooter>
-      </Card>
-    </Link>
+      </Link>
+    </Card>
   );
 }

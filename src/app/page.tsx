@@ -26,9 +26,9 @@ export default function Home() {
               Browse the public archive of documents on Norwegian philosophy.
             </p>
           </div>
-          <Link href="/upload" asChild>
-            <Button>Upload Document</Button>
-          </Link>
+          <Button asChild>
+            <Link href="/upload">Upload Document</Link>
+          </Button>
         </div>
         <div className="mt-4 flex flex-col gap-4 sm:flex-row">
           <div className="relative flex-1">
@@ -63,9 +63,9 @@ export default function Home() {
               <p className="text-muted-foreground mt-2 mb-4">
                 Start by uploading a document to the archive.
               </p>
-              <Link href="/upload" asChild>
-                <Button>Upload a Document</Button>
-              </Link>
+              <Button asChild>
+                <Link href="/upload">Upload a Document</Link>
+              </Button>
             </div>
           </div>
         )}
