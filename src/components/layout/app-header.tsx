@@ -11,12 +11,12 @@ export function AppHeader() {
         <Link href="/" className="flex items-center gap-2 text-foreground hover:text-accent transition-colors">
           <BookOpen className="size-6 text-accent" />
           <span className="text-xl font-headline font-semibold">
-            Norsk Filosofi
+            Norsk Filosofi Arkiv
           </span>
         </Link>
         <nav className="flex items-center gap-2">
           <Button variant="ghost" asChild>
-            <Link href="/archive">Articles</Link>
+            <Link href="/archive">Archive</Link>
           </Button>
         </nav>
       </div>

@@ -50,16 +50,16 @@ export default function Home() {
       <section className="flex items-center justify-center p-8 text-center pt-32 pb-24 bg-card/50">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-8xl font-headline text-foreground mb-4">
-            Norsk Filosofi
+            Norsk Filosofi Arkiv
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            A comprehensive archive of Norwegian philosophy – from 19th-century romanticism to modern existentialism, from ethical dilemmas to political theory.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            A sophisticated and modern digital encyclopedia dedicated to the rich history of Norwegian philosophy. Designed as an elegant and engaging platform for exploration and learning.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <Button asChild size="lg">
               <Link href="/archive">
                 <BookOpen className="mr-2" />
-                Explore Articles
+                Explore the Archive
               </Link>
             </Button>
           </div>
