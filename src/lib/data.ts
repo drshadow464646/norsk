@@ -135,7 +135,7 @@ export let documents: Document[] = [
   },
   {
     id: '10',
-    title: 'The Philosophy of Science in Norway: The Oslo School',
+    title: 'The Oslo School and Philosophy of Science',
     author: 'Ingebrigt Johansson',
     content: 'The Oslo School was a group of philosophers active in the mid-20th century who made significant contributions to the philosophy of science and logic. Figures like Ingebrigt Johansson and Albert Lange Fliflet worked on topics ranging from the foundations of mathematics to the logic of scientific discovery. They were influenced by logical positivism but maintained a critical distance, often emphasizing the role of conventionality and practical considerations in scientific theories. This school of thought helped establish a strong tradition of analytic philosophy in Norway.',
     summary: 'A review of the Oslo School in the mid-20th century, highlighting its contributions to the philosophy of science and logic, and its role in establishing analytic philosophy in Norway.',
@@ -438,7 +438,7 @@ export let documents: Document[] = [
     author: 'Trygve Lavik',
     content: 'The rapid development of Artificial Intelligence (AI) raises profound ethical questions. Norwegian philosophers are actively engaged in this debate, focusing on issues of fairness, transparency, and accountability in algorithmic systems. A key concern is how to align AI development with the Nordic model\'s values of social trust, equality, and a strong public sector. This involves scrutinizing AI for biases, ensuring democratic oversight, and debating the future of work in an automated age.',
     summary: 'An overview of the ethical debate around AI in Norway, focusing on aligning algorithms with Nordic values like trust and equality, and ensuring fairness and accountability.',
-    category: 'Technoethics',
+    category: 'Ethics',
     tags: ['AI Ethics', 'Algorithms', 'Nordic Model', 'Trygve Lavik'],
     publishDate: '2021-01-01',
     wikipediaUrl: 'https://en.wikipedia.org/wiki/Ethics_of_artificial_intelligence',
@@ -451,7 +451,7 @@ export let documents: Document[] = [
     author: 'Siri Martinsen',
     content: 'The philosophical debate on animal rights has had a tangible impact in Norway, led by figures like Siri Martinsen and the organization NOAH. This movement challenges the traditional view of animals as mere property, arguing for their status as sentient beings with interests that deserve legal protection. The philosophical arguments draw from utilitarianism (minimizing suffering) and rights-based theories, leading to reforms in animal welfare law and public consciousness about animal exploitation in industry and research.',
     summary: 'An analysis of the animal rights movement in Norway, its philosophical foundations in utilitarian and rights-based ethics, and its influence on changing legal and social attitudes towards animals.',
-    category: 'Animal Ethics',
+    category: 'Ethics',
     tags: ['Animal Rights', 'Siri Martinsen', 'NOAH', 'Animal Welfare'],
     publishDate: '2010-01-01',
     wikipediaUrl: 'https://en.wikipedia.org/wiki/Animal_rights',
@@ -473,7 +473,7 @@ export let documents: Document[] = [
   },
   {
     id: '36',
-    title: 'The Philosophy of Landscape and Place (Sted)',
+    title: 'The Philosophy of Place (Sted)',
     author: 'Egil Grip',
     content: 'Beyond general aesthetics of nature, some Norwegian thinkers have focused on the specific philosophy of "sted" (place). This goes beyond seeing a landscape as a beautiful object and instead investigates the deep, existential connection between people and their specific environments. It explores how a place—a farm, a valley, a coastline—shapes identity, memory, and a sense of belonging. This phenomenological approach emphasizes lived experience and the intricate web of culture, history, and nature that constitutes a "place".',
     summary: 'An exploration of the Norwegian philosophical concept of "sted" (place), examining the existential connection between people, identity, memory, and their lived environment.',
@@ -504,7 +504,7 @@ export let documents: Document[] = [
     content: 'The indigenous Sami people of Norway possess a rich worldview with deep philosophical dimensions. Traditional Sami cosmology does not draw a sharp line between humans and nature; instead, it sees the world as a web of interconnected beings and forces. Animals, stones, and landscapes can have spirit and agency. This animistic and shamanistic understanding of reality, where the spiritual and material worlds are intertwined, offers a profound alternative to Western dualism and has influenced contemporary environmental philosophy.',
     summary: 'An exploration of the indigenous Sami worldview, highlighting its non-dualistic and animistic understanding of nature, where all elements are seen as interconnected spiritual beings.',
     category: 'Indigenous Philosophy',
-    tags: ['Sami', 'Animism', 'Cosmology', 'Indigenous Knowledge'],
+tags: ['Sami', 'Animism', 'Cosmology', 'Indigenous Knowledge'],
     publishDate: '1900-01-01',
     wikipediaUrl: 'https://en.wikipedia.org/wiki/Sami_shamanism',
     views: 510,
@@ -569,7 +569,7 @@ export let documents: Document[] = [
     content: 'The Bergen School of Meteorology, founded by Vilhelm Bjerknes in the 1920s, revolutionized weather forecasting by treating it as a problem of physics. While a scientific achievement, its philosophical impact was profound. It represented a victory for a mechanistic and predictive model of nature, demonstrating that complex, seemingly chaotic systems could be understood and predicted through mathematical laws. This bolstered a positivistic and scientific worldview and had implications for the debate between determinism and free will.',
     summary: 'An analysis of the philosophical impact of the Bergen School of Meteorology, which promoted a deterministic and mathematical model of nature, influencing debates on scientific prediction.',
     category: 'Philosophy of Science',
-    tags: ['Vilhelm Bjerknes', 'Determinism', 'Prediction', 'Positivism'],
+tags: ['Vilhelm Bjerknes', 'Determinism', 'Prediction', 'Positivism'],
     publishDate: '1920-01-01',
     wikipediaUrl: 'https://en.wikipedia.org/wiki/Bergen_School_of_Meteorology',
     views: 290,
@@ -616,5 +616,7 @@ export const addDocument = (doc: Omit<Document, 'id' | 'createdAt' | 'author' | 
   documents.unshift(newDoc);
   return newDoc;
 };
+
+    
 
     
