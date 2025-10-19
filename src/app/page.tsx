@@ -4,45 +4,21 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { BookOpen, X } from 'lucide-react';
-import Link from 'next/link';
 import { documents } from '@/lib/data';
 import { ArchiveBrowser } from '@/components/archive-browser';
 
-const categoryCount = new Set(documents.map(doc => doc.category)).size;
-const historicalPeriodsCount = 3;
+const uniqueCategories = [...new Set(documents.map(doc => doc.category))].map(category => ({
+  title: category,
+  description: `Explore articles on ${category.toLowerCase()}.`
+}));
+
+const historicalPeriodsCount = 3; 
 
 const stats = [
   { name: 'Articles', value: documents.length },
-  { name: 'Categories', value: categoryCount },
+  { name: 'Categories', value: uniqueCategories.length },
   { name: 'Historical Periods', value: historicalPeriodsCount },
 ];
-
-const categories = [
-  {
-    title: 'Political Philosophy',
-    description: 'The study of government and politics',
-  },
-  {
-    title: 'Environmental Philosophy',
-    description: 'The study of the natural world and our relationship to it.',
-  },
-  {
-    title: 'Existentialism',
-    description: 'The study of individual freedom, responsibility, and the meaning of life.',
-  },
-  {
-    title: 'Metaphysics',
-    description: 'The study of the fundamental nature of reality.',
-  },
-  {
-    title: 'Aesthetics',
-    description: 'The study of beauty and art',
-  },
-  {
-    title: 'Ethics',
-    description: 'The study of moral principles and values.',
-  },
-]
 
 export default function Home() {
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -94,7 +70,7 @@ export default function Home() {
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-headline text-center mb-12">Explore by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categories.map((category) => (
+            {uniqueCategories.map((category) => (
               <Card 
                 key={category.title} 
                 className={`h-full hover:shadow-lg transition-all cursor-pointer ${categoryFilter === category.title ? 'ring-2 ring-primary' : 'ring-0'}`}
