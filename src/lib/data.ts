@@ -495,7 +495,7 @@ export let documents: Document[] = [
     publishDate: '1979-01-01',
     wikipediaUrl: 'https://en.wikipedia.org/wiki/Irrationality',
     views: 580,
-createdAt: 1706611200000,
+    createdAt: 1706611200000,
   },
   {
     id: '38',
@@ -543,7 +543,7 @@ createdAt: 1706611200000,
     content: 'Lars Fredrik Svendsen also explores the modern experience of loneliness, distinguishing it from chosen solitude. He investigates loneliness as a social pathology, an emotional response to a lack of meaningful connection. The book traces the cultural and philosophical history of loneliness, questioning why it has become so prevalent in societies that are more connected than ever. Svendsen examines loneliness not just as a personal feeling, but as a significant social and political problem.',
     summary: 'A summary of Lars Fredrik Svendsen\'s philosophical investigation into loneliness, analyzing it as a modern social pathology distinct from solitude and a major political problem.',
     category: 'Social Philosophy',
-tags: ['Lars Fredrik Svendsen', 'Loneliness', 'Community', 'Modernity'],
+    tags: ['Lars Fredrik Svendsen', 'Loneliness', 'Community', 'Modernity'],
     publishDate: '2015-01-01',
     wikipediaUrl: 'https://en.wikipedia.org/wiki/Loneliness',
     views: 530,
@@ -616,3 +616,5 @@ export const addDocument = (doc: Omit<Document, 'id' | 'createdAt' | 'author' | 
   documents.unshift(newDoc);
   return newDoc;
 };
+
+    
