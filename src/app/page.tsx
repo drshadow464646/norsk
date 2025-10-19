@@ -67,10 +67,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <Button asChild size="lg">
-              <Link href="/archive">
+              <a href="#featured-articles">
                 <BookOpen />
                 Explore Articles
-              </Link>
+              </a>
             </Button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -114,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-card/50">
+      <section id="featured-articles" className="py-16 sm:py-24 bg-card/50">
         <div className="container mx-auto">
           <ArchiveBrowser initialCategory={categoryFilter} />
         </div>
