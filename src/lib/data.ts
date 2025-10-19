@@ -7,6 +7,7 @@ export type Document = {
   category: string;
   tags: string[];
   publishDate: string;
+  wikipediaUrl: string;
   views: number;
   createdAt: number;
 };
@@ -23,6 +24,7 @@ export let documents: Document[] = [
     category: 'Environmental Philosophy',
     tags: ['Arne Næss', 'Deep Ecology', '20th Century'],
     publishDate: '1973-01-15',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Arne_N%C3%A6ss',
     views: 980,
     createdAt: 1673740800000,
   },
@@ -35,6 +37,7 @@ export let documents: Document[] = [
     category: 'Metaphysics',
     tags: ['Peter Wessel Zapffe', 'Pessimism', 'Antinatalism'],
     publishDate: '1941-05-20',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Peter_Wessel_Zapffe',
     views: 950,
     createdAt: 1673654400000,
   },
@@ -47,6 +50,7 @@ export let documents: Document[] = [
     category: 'Existentialism',
     tags: ['Post-War Philosophy', 'Norwegian Existentialism', 'Janteloven'],
     publishDate: '1955-11-01',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Existentialism',
     views: 720,
     createdAt: 1673568000000,
   },
@@ -59,6 +63,7 @@ export let documents: Document[] = [
     category: 'Political Philosophy',
     tags: ['Anathon Aall', 'Democracy', 'Political Theory'],
     publishDate: '1918-09-10',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Anathon_Aall',
     views: 650,
     createdAt: 1673481600000,
   },
@@ -71,6 +76,7 @@ export let documents: Document[] = [
     category: 'Feminist Philosophy',
     tags: ['Cathrine Holst', 'Feminism', 'Contemporary'],
     publishDate: '2010-06-22',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Feminist_philosophy',
     views: 510,
     createdAt: 1673395200000,
   },
@@ -83,6 +89,7 @@ export let documents: Document[] = [
     category: 'Philosophy of Law',
     tags: ['Legal Realism', 'Torstein Eckhoff', 'Jurisprudence'],
     publishDate: '1966-03-05',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Scandinavian_legal_realism',
     views: 480,
     createdAt: 1673308800000,
   },
@@ -95,16 +102,18 @@ export let documents: Document[] = [
     category: 'Aesthetics',
     tags: ['Aesthetics', 'Nature', 'Sublime'],
     publishDate: '1995-08-19',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Aesthetics_of_nature',
     views: 320,
     createdAt: 1673222400000,
   }
 ];
 
 // Function to add a new document
-export const addDocument = (doc: Omit<Document, 'id' | 'createdAt' | 'author' | 'views'> & Partial<Pick<Document, 'author' | 'views'>>) => {
+export const addDocument = (doc: Omit<Document, 'id' | 'createdAt' | 'author' | 'views' | 'wikipediaUrl'> & Partial<Pick<Document, 'author' | 'views' | 'wikipediaUrl'>>) => {
   const newDoc: Document = {
     author: 'Unknown',
     views: 0,
+    wikipediaUrl: '',
     ...doc,
     id: (Date.now() + Math.random()).toString(),
     createdAt: Date.now(),
