@@ -1,19 +1,19 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, LayoutGrid, Clock } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { BookOpen } from 'lucide-react';
 import Link from 'next/link';
 import { documents } from '@/lib/data';
 import { ArchiveBrowser } from '@/components/archive-browser';
 
 const categoryCount = new Set(documents.map(doc => doc.category)).size;
-const historicalPeriodsCount = 3; 
+const historicalPeriodsCount = 3;
 
 const stats = [
-  { name: 'Articles', value: documents.length, icon: FileText },
-  { name: 'Categories', value: categoryCount, icon: LayoutGrid },
-  { name: 'Historical Periods', value: historicalPeriodsCount, icon: Clock },
+  { name: 'Articles', value: documents.length },
+  { name: 'Categories', value: categoryCount },
+  { name: 'Historical Periods', value: historicalPeriodsCount },
 ];
 
 const categories = [
@@ -52,12 +52,13 @@ export default function Home() {
             Norsk Filosofi Arkiv
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-             A sophisticated and modern digital encyclopedia dedicated to the rich history of Norwegian philosophy. Designed as an elegant and engaging platform for exploration and learning.
+            A comprehensive encyclopedia of Norwegian philosophy – from Medieval scholasticism to Renaissance humanism, from Enlightenment thought to modern political theory.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <Button asChild size="lg">
               <Link href="/archive">
-                Explore the Archive
+                <BookOpen />
+                Explore Articles
               </Link>
             </Button>
           </div>
@@ -80,10 +81,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((category) => (
               <Card key={category.title} className="hover:shadow-lg transition-shadow cursor-pointer">
-                <CardHeader>
-                  <CardTitle className="font-headline text-xl">{category.title}</CardTitle>
-                  <CardDescription>{category.description}</CardDescription>
-                </CardHeader>
+                <div className="p-6">
+                  <h3 className="font-headline text-xl mb-1.5">{category.title}</h3>
+                  <p className="text-sm text-muted-foreground">{category.description}</p>
+                </div>
               </Card>
             ))}
           </div>
