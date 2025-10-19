@@ -41,7 +41,7 @@ export function DocumentView({ document, open, onOpenChange }: DocumentViewProps
           </div>
         </div>
 
-        <ScrollArea className="flex-1 min-h-0">
+        <ScrollArea className="flex-grow min-h-0">
           <article className="px-8 pb-12">
             <div className="space-y-10">
               <section>
