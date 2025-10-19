@@ -2,13 +2,12 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, FileText, LayoutGrid, Clock } from 'lucide-react';
+import { FileText, LayoutGrid, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { documents } from '@/lib/data';
 import { ArchiveBrowser } from '@/components/archive-browser';
 
 const categoryCount = new Set(documents.map(doc => doc.category)).size;
-// A placeholder for historical periods since it's not in the data model.
 const historicalPeriodsCount = 3; 
 
 const stats = [
@@ -53,12 +52,11 @@ export default function Home() {
             Norsk Filosofi Arkiv
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            A sophisticated and modern digital encyclopedia dedicated to the rich history of Norwegian philosophy. Designed as an elegant and engaging platform for exploration and learning.
+             A sophisticated and modern digital encyclopedia dedicated to the rich history of Norwegian philosophy. Designed as an elegant and engaging platform for exploration and learning.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <Button asChild size="lg">
               <Link href="/archive">
-                <BookOpen className="mr-2" />
                 Explore the Archive
               </Link>
             </Button>

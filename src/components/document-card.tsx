@@ -1,17 +1,20 @@
 import type { Document } from '@/lib/data';
-import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Eye } from 'lucide-react';
 
 type DocumentCardProps = {
   document: Document;
+  onClick: () => void;
 };
 
-export function DocumentCard({ document }: DocumentCardProps) {
+export function DocumentCard({ document, onClick }: DocumentCardProps) {
   return (
-    <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:border-primary/50 bg-card/80">
-      <Link href={`/documents/${document.id}`} className="flex flex-col flex-grow p-6">
+    <Card 
+      className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:border-primary/50 bg-card/80 cursor-pointer"
+      onClick={onClick}
+    >
+      <div className="flex flex-col flex-grow p-6">
         <CardHeader className="p-0 mb-4 flex-row items-center justify-between space-y-0 text-muted-foreground text-sm">
           <Badge variant="secondary" className="w-fit">{document.category}</Badge>
           <div className="flex items-center gap-1.5">
@@ -33,7 +36,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
             ))}
           </div>
         </CardFooter>
-      </Link>
+      </div>
     </Card>
   );
 }

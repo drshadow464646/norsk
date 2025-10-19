@@ -10,13 +10,23 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Skeleton } from '@/components/ui/skeleton';
+import { DocumentView } from '@/components/document-view';
 
 export function ArchiveBrowser({ isArchivePage = false }: { isArchivePage?: boolean }) {
   const [isClient, setIsClient] = useState(false);
+  const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const handleCardClick = (doc: Document) => {
+    setSelectedDocument(doc);
+  };
+
+  const handleModalClose = () => {
+    setSelectedDocument(null);
+  };
 
   const allCategories = ['All Topics', ...Array.from(new Set(documents.map((doc) => doc.category)))];
   const displayedDocuments = isArchivePage ? documents : documents.slice(0, 3);
@@ -66,21 +76,23 @@ export function ArchiveBrowser({ isArchivePage = false }: { isArchivePage?: bool
       {displayedDocuments.length > 0 ? (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {displayedDocuments.map((doc: Document) => (
-            <DocumentCard key={doc.id} document={doc} />
+            <DocumentCard key={doc.id} document={doc} onClick={() => handleCardClick(doc)} />
           ))}
         </div>
       ) : (
         <div className="flex h-full items-center justify-center rounded-lg border-2 border-dashed bg-card/50 p-12">
           <div className="text-center">
             <h2 className="text-xl font-semibold">No Documents Found</h2>
-            <p className="text-muted-foreground mt-2 mb-4">
-              Start by uploading a document to the archive.
-            </p>
-            <Button asChild>
-              <Link href="/upload">Upload a Document</Link>
-            </Button>
           </div>
         </div>
+      )}
+
+      {selectedDocument && (
+        <DocumentView
+          document={selectedDocument}
+          open={!!selectedDocument}
+          onOpenChange={handleModalClose}
+        />
       )}
     </>
   );
