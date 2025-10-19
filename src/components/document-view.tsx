@@ -18,8 +18,8 @@ export function DocumentView({ document, open, onOpenChange }: DocumentViewProps
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-3xl w-full max-h-[90svh] flex flex-col p-0">
-        <ScrollArea className="flex-1 min-h-0">
+      <DialogContent className="max-w-3xl w-full h-[90vh] flex flex-col p-0">
+        <ScrollArea className="h-full overflow-y-auto">
           <article className="px-8 py-12 md:px-12 md:py-16">
             <div className="space-y-12">
               <header className="text-center">
