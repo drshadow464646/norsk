@@ -1,7 +1,15 @@
 import { Suspense } from 'react';
 import { ArchiveBrowser, ArchiveBrowserSkeleton } from '@/components/archive-browser';
 
-export default function ArchivePage() {
+export default function ArchivePage({
+  searchParams,
+}: {
+  searchParams?: {
+    category?: string;
+  };
+}) {
+  const category = searchParams?.category || '';
+
   return (
     <div className="flex h-full flex-col">
       <header className="flex-shrink-0 border-b p-4 pt-24">
@@ -17,7 +25,7 @@ export default function ArchivePage() {
       <main className="flex-1 overflow-auto p-4 md:p-6">
         <div className="container mx-auto">
           <Suspense fallback={<ArchiveBrowserSkeleton />}>
-            <ArchiveBrowser isArchivePage={true} />
+            <ArchiveBrowser isArchivePage={true} initialCategory={category} />
           </Suspense>
         </div>
       </main>

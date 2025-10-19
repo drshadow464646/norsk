@@ -80,12 +80,14 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-headline text-center mb-12">Explore by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((category) => (
-              <Card key={category.title} className="hover:shadow-lg transition-shadow cursor-pointer">
-                <div className="p-6">
-                  <h3 className="font-headline text-xl mb-1.5">{category.title}</h3>
-                  <p className="text-sm text-muted-foreground">{category.description}</p>
-                </div>
-              </Card>
+              <Link key={category.title} href={`/archive?category=${encodeURIComponent(category.title)}`} passHref>
+                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
+                  <div className="p-6">
+                    <h3 className="font-headline text-xl mb-1.5">{category.title}</h3>
+                    <p className="text-sm text-muted-foreground">{category.description}</p>
+                  </div>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
