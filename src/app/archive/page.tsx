@@ -2,9 +2,6 @@
 
 import { Suspense } from 'react';
 import { ArchiveBrowser, ArchiveBrowserSkeleton } from '@/components/archive-browser';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { Plus } from 'lucide-react';
 
 export default function ArchivePage() {
   return (
@@ -17,12 +14,6 @@ export default function ArchivePage() {
               Browse the public archive of documents on Norwegian philosophy.
             </p>
           </div>
-          <Button asChild>
-            <Link href="/upload">
-              <Plus className="mr-2" />
-              Upload Document
-            </Link>
-          </Button>
         </div>
       </header>
       <main className="flex-1 overflow-auto p-4 md:p-6">

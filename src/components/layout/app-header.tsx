@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { BookOpen, Plus } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function AppHeader() {
@@ -17,12 +17,6 @@ export function AppHeader() {
         <nav className="flex items-center gap-2">
           <Button variant="ghost" asChild>
             <Link href="/archive">Articles</Link>
-          </Button>
-          <Button variant="ghost" asChild>
-            <Link href="/upload">
-              <Plus className="mr-2 size-4" />
-              Create
-            </Link>
           </Button>
         </nav>
       </div>

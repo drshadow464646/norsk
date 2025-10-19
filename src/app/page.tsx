@@ -2,10 +2,9 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Plus, FileText, LayoutGrid, Clock } from 'lucide-react';
+import { BookOpen, FileText, LayoutGrid, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { documents } from '@/lib/data';
-import { DocumentCard } from '@/components/document-card';
 import { ArchiveBrowser } from '@/components/archive-browser';
 
 const categoryCount = new Set(documents.map(doc => doc.category)).size;
@@ -45,9 +44,6 @@ const categories = [
   },
 ]
 
-// Get first 3 documents for featured articles
-const featuredArticles = documents.slice(0, 3);
-
 export default function Home() {
   return (
     <div className="flex h-full flex-col bg-background">
@@ -64,12 +60,6 @@ export default function Home() {
               <Link href="/archive">
                 <BookOpen className="mr-2" />
                 Explore Articles
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/upload">
-                <Plus className="mr-2" />
-                Contribute
               </Link>
             </Button>
           </div>
