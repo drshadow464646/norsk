@@ -48,7 +48,11 @@ export default function Home() {
   const [categoryFilter, setCategoryFilter] = useState('');
 
   const handleCategoryClick = (categoryTitle: string) => {
-    setCategoryFilter(prevFilter => prevFilter === categoryTitle ? '' : categoryTitle);
+    const newFilter = categoryFilter === categoryTitle ? '' : categoryTitle;
+    setCategoryFilter(newFilter);
+    if (newFilter) {
+      document.getElementById('featured-articles')?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const clearFilter = () => {
