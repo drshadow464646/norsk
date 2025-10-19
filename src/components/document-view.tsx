@@ -18,7 +18,7 @@ export function DocumentView({ document, open, onOpenChange }: DocumentViewProps
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-3xl w-full max-h-[90svh] flex flex-col p-0">
-        <DialogHeader className="p-8 pb-6 text-center">
+        <DialogHeader className="p-8 pb-6 text-center flex-shrink-0">
           <DialogTitle asChild>
             <h1 className="text-4xl md:text-5xl font-headline mb-3">{document.title}</h1>
           </DialogTitle>
@@ -33,7 +33,7 @@ export function DocumentView({ document, open, onOpenChange }: DocumentViewProps
           </DialogDescription>
         </DialogHeader>
 
-        <div className="px-8 pb-4 text-center">
+        <div className="px-8 pb-4 text-center flex-shrink-0">
           <div className="flex flex-wrap gap-2 justify-center">
             {document.tags.map((tag) => (
               <Badge key={tag} variant="secondary">{tag}</Badge>
