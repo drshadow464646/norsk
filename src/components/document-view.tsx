@@ -18,30 +18,32 @@ export function DocumentView({ document, open, onOpenChange }: DocumentViewProps
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-3xl w-full max-h-[90svh] flex flex-col p-0">
-        <DialogHeader className="p-8 pb-6 text-center flex-shrink-0">
-          <DialogTitle asChild>
-            <h1 className="text-4xl md:text-5xl font-headline mb-3">{document.title}</h1>
-          </DialogTitle>
-          <DialogDescription asChild>
-            <div className="text-muted-foreground text-sm">
-              <span>By {document.author}</span>
-              <span className="mx-2">•</span>
-              <span>{publicationYear}</span>
-              <span className="mx-2">•</span>
-              <span>{document.category}</span>
-            </div>
-          </DialogDescription>
-        </DialogHeader>
+        <div className="p-8 pb-4 flex-shrink-0">
+          <DialogHeader className="text-center pb-6">
+            <DialogTitle asChild>
+              <h1 className="text-4xl md:text-5xl font-headline mb-3">{document.title}</h1>
+            </DialogTitle>
+            <DialogDescription asChild>
+              <div className="text-muted-foreground text-sm">
+                <span>By {document.author}</span>
+                <span className="mx-2">•</span>
+                <span>{publicationYear}</span>
+                <span className="mx-2">•</span>
+                <span>{document.category}</span>
+              </div>
+            </DialogDescription>
+          </DialogHeader>
 
-        <div className="px-8 pb-4 text-center flex-shrink-0">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {document.tags.map((tag) => (
-              <Badge key={tag} variant="secondary">{tag}</Badge>
-            ))}
+          <div className="text-center">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {document.tags.map((tag) => (
+                <Badge key={tag} variant="secondary">{tag}</Badge>
+              ))}
+            </div>
           </div>
         </div>
 
-        <ScrollArea className="flex-grow min-h-0">
+        <ScrollArea className="flex-1 min-h-0">
           <article className="px-8 pb-12">
             <div className="space-y-10">
               <section>
