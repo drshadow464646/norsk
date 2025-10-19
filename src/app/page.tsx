@@ -1,8 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, X } from 'lucide-react';
 import Link from 'next/link';
 import { documents } from '@/lib/data';
 import { ArchiveBrowser } from '@/components/archive-browser';
@@ -44,6 +45,16 @@ const categories = [
 ]
 
 export default function Home() {
+  const [categoryFilter, setCategoryFilter] = useState('');
+
+  const handleCategoryClick = (categoryTitle: string) => {
+    setCategoryFilter(prevFilter => prevFilter === categoryTitle ? '' : categoryTitle);
+  };
+
+  const clearFilter = () => {
+    setCategoryFilter('');
+  };
+
   return (
     <div className="flex h-full flex-col bg-background">
       <section className="flex items-center justify-center p-8 text-center pt-32 pb-24 bg-card/50">
@@ -80,22 +91,32 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-headline text-center mb-12">Explore by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((category) => (
-              <Link key={category.title} href={`/archive?category=${encodeURIComponent(category.title)}`} passHref>
-                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
-                  <div className="p-6">
-                    <h3 className="font-headline text-xl mb-1.5">{category.title}</h3>
-                    <p className="text-sm text-muted-foreground">{category.description}</p>
-                  </div>
-                </Card>
-              </Link>
+              <Card 
+                key={category.title} 
+                className={`h-full hover:shadow-lg transition-all cursor-pointer ${categoryFilter === category.title ? 'ring-2 ring-primary' : 'ring-0'}`}
+                onClick={() => handleCategoryClick(category.title)}
+              >
+                <div className="p-6">
+                  <h3 className="font-headline text-xl mb-1.5">{category.title}</h3>
+                  <p className="text-sm text-muted-foreground">{category.description}</p>
+                </div>
+              </Card>
             ))}
           </div>
+          {categoryFilter && (
+            <div className="text-center mt-8">
+              <Button variant="ghost" onClick={clearFilter}>
+                <X className="mr-2 h-4 w-4" />
+                Clear filter
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 
       <section className="py-16 sm:py-24 bg-card/50">
         <div className="container mx-auto">
-          <ArchiveBrowser />
+          <ArchiveBrowser initialCategory={categoryFilter} />
         </div>
       </section>
     </div>

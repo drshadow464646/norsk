@@ -1,14 +1,12 @@
+'use client';
+
 import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { ArchiveBrowser, ArchiveBrowserSkeleton } from '@/components/archive-browser';
 
-export default function ArchivePage({
-  searchParams,
-}: {
-  searchParams?: {
-    category?: string;
-  };
-}) {
-  const category = searchParams?.category || '';
+function ArchiveContent() {
+  const searchParams = useSearchParams();
+  const category = searchParams.get('category') || '';
 
   return (
     <div className="flex h-full flex-col">
@@ -24,11 +22,17 @@ export default function ArchivePage({
       </header>
       <main className="flex-1 overflow-auto p-4 md:p-6">
         <div className="container mx-auto">
-          <Suspense fallback={<ArchiveBrowserSkeleton />}>
             <ArchiveBrowser isArchivePage={true} initialCategory={category} />
-          </Suspense>
         </div>
       </main>
     </div>
+  );
+}
+
+export default function ArchivePage() {
+  return (
+    <Suspense fallback={<div className="pt-24"><ArchiveBrowserSkeleton /></div>}>
+      <ArchiveContent />
+    </Suspense>
   );
 }

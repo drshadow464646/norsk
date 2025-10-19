@@ -22,6 +22,11 @@ export function ArchiveBrowser({ isArchivePage = false, initialCategory = '' }: 
   useEffect(() => {
     setIsClient(true);
   }, []);
+  
+  useEffect(() => {
+    setSelectedCategory(initialCategory || 'All Topics');
+  }, [initialCategory]);
+
 
   const handleCardClick = (doc: Document) => {
     setSelectedDocument(doc);
@@ -88,16 +93,13 @@ export function ArchiveBrowser({ isArchivePage = false, initialCategory = '' }: 
               />
             </div>
             <div className="flex gap-4">
-              <Select value={selectedCategory.toLowerCase()} onValueChange={(value) => {
-                const matchingCategory = allCategories.find(c => c.toLowerCase() === value) || 'All Topics';
-                setSelectedCategory(matchingCategory);
-              }}>
+              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
                 <SelectTrigger className="w-full md:w-[180px] bg-background/50 h-11">
                   <SelectValue placeholder="All Topics" />
                 </SelectTrigger>
                 <SelectContent>
                   {allCategories.map((category) => (
-                    <SelectItem key={category} value={category.toLowerCase()}>
+                    <SelectItem key={category} value={category}>
                       {category}
                     </SelectItem>
                   ))}
