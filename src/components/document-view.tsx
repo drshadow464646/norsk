@@ -1,6 +1,6 @@
 'use client';
 
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import type { Document } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
@@ -18,9 +18,11 @@ export function DocumentView({ document, open, onOpenChange }: DocumentViewProps
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl w-full p-8 md:p-12">
-        <article className="h-full overflow-auto">
-          <header className="mb-8 text-center">
+        <DialogHeader className="text-center mb-8">
+          <DialogTitle asChild>
             <h1 className="text-4xl md:text-5xl font-headline mb-3">{document.title}</h1>
+          </DialogTitle>
+          <DialogDescription asChild>
             <div className="text-muted-foreground text-sm">
               <span>By {document.author}</span>
               <span className="mx-2">•</span>
@@ -28,6 +30,10 @@ export function DocumentView({ document, open, onOpenChange }: DocumentViewProps
               <span className="mx-2">•</span>
               <span>{document.category}</span>
             </div>
+          </DialogDescription>
+        </DialogHeader>
+        <article className="h-full overflow-auto -mt-8">
+          <header className="mb-8 text-center">
             <div className="mt-4 flex flex-wrap gap-2 justify-center">
               {document.tags.map((tag) => (
                 <Badge key={tag} variant="secondary">{tag}</Badge>
