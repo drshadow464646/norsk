@@ -22,4 +22,3 @@ npm run dev
 Then, open [http://localhost:9002](http://localhost:9002) in your browser.
 
 - Navigate to the **Archive** page to browse existing documents.
-- Go to the **Upload Document** page to contribute to the archive.
